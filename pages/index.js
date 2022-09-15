@@ -2,8 +2,14 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import {useEffect, useState} from "react";
 
 export default function Home() {
+  const [ua,setUA] = useState();
+  useEffect(() => {
+    setUA(window.navigator.userAgent) ;
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,7 +27,7 @@ export default function Home() {
 
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          {ua}
           <code className={styles.code}>pages/index.js</code>
         </p>
 
